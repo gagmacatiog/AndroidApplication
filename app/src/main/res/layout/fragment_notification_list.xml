@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.georgealbert.queuemobileapplication.notification_list">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:scrollbars="none">-->
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:transcriptMode="normal"
+        android:textColor="@android:color/black"
+        android:id="@+id/listViewNotification">
+    </ListView>
+
+    <!--</ScrollView>-->
+
+</RelativeLayout>

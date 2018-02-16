@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#d6535d</color>
+    <color name="colorSchool">#400000</color>
+    <color name="colorSchool2">#472A2A</color>
+    <color name="colorGold">#ffc107</color>
+    <color name="colorOrange">#dd9629</color>
+    <color name="colorwhitelow">#FAFAFA</color>
+    <color name="colorwhitelow2">#efefef</color>
+    <color name="doneColor">#81d4fa</color>
+    <color name="cancelColor">#ffab40</color>
+    <color name="homeButtonRed">#ab424a</color>
+    <color name="homeButtonRed2">#762d33</color>
+    <color name="homeButtonBg">#0c1144</color>
+    <color name="black">#000000</color>
+    <color name="green">#33691E</color>
+    <color name="green2">#7daf42</color>
+    <color name="indigo">#1A237E</color>
+    <color name="indigo2">#3F51B5</color>
+    <color name="blue">#0D47A1</color>
+    <color name="blue2">#2196F3</color>
+</resources>

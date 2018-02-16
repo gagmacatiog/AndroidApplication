@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">Usep Queue Mobile</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="logoDescription">usepLogo</string>
+    <string name="ip">192.168.1.8</string>
+    <string name="database">usep_queue</string>
+    <string name="dbUsername">sa</string>
+    <string name="dbPassword">123456</string>
+
+    <!--Main Page-->
+    <string name="queueNumber">Your Queue Number</string>
+    <string name="proceedTo">Please proceed to:</string>
+    <string name="waitingTime">Estimated waiting time:</string>
+    <string name="reservedQueue"> Reserved Queue: </string>
+    <string name="currentlyServed">Now Serving</string>
+    <string name="extendTime">Extend Time</string>
+    <string name="dropQueue">Drop Queue</string>
+
+    <!--Currently Served Page-->
+    <string name="currentlyServedTitle">Currently Served Queue</string>
+    <string name="reserveQueueTitle">Reserve a Queue</string>
+    <string name="reserveQueueMessage">Choose a Servicing Terminal:</string>
+
+    <!--Change Password Page-->
+    <string name="changePassword">Change Password</string>
+    <string name="changePasswordTitle">Changing a Password</string>
+    <string name="changePasswordMessage">Fill-up Fields Below:</string>
+    <string name="changePasswordOld">Old Password</string>
+    <string name="changePasswordNew">New Password</string>
+
+    <!--Logout Page-->
+    <string name="logout">Logout</string>
+    <string name="logoutTitle">Logging Out</string>
+    <string name="logoutMessage">Do you really wish to exit the application?</string>
+
+    <!-- Application Info Page-->
+    <string name="applicationInformationTitle">Information of the Application</string>
+    <string name="applicationInformationMessage"></string>
+
+    <!--Buttons-->
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="change">Change</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment 1</string>
+    <string name="hello_blank_fragment2">Hello blank fragment 2</string>
+
+    <!--Terminal Array-->
+    <string-array name="terminal">
+        <item>Cashier</item>
+        <item>Registrar</item>
+        <item>Accounts</item>
+        <item>UGTO</item>
+    </string-array>
+
+    <!---->
+    <array name="details">
+        <item>2,000</item>
+        <item>T.O.R.</item>
+        <item>I.N.C.</item>
+        <item>Clearance</item>
+    </array>
+
+    <array name="notification">
+        <item>5 minutes remaining</item>
+        <item>3 people away</item>
+    </array>
+
+    <!-- THIS IS FOR ALL DATABASE TABLE NAME-->
+    <!--<string name="user_notification">user_notification</string>-->
+    <!--<string name="user_logs">user_logs</string>-->
+    <!--<string name=""></string>-->
+    <!--<string name=""></string>-->
+    <!--<string name=""></string>-->
+    <!--<string name=""></string>-->
+    <!--<string name=""></string>-->
+    <!--<string name=""></string>-->
+</resources>

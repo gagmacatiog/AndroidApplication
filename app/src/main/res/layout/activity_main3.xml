@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorwhitelow"
+    tools:context="com.example.georgealbert.queuemobileapplication.Main3Activity">
+
+    <View android:id="@+id/strut"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:text="Register"
+        android:id="@+id/button2"
+        android:elevation="10dp"
+        android:textSize="20sp"
+        android:background="@color/colorSchool"
+        android:layout_height="60dp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/checkBox"
+        android:layout_centerHorizontal="true"
+        android:layout_width="270dp" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/gradientbackgroundcolor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_action_gobackbtn"
+                    android:id="@+id/imageView2"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="match_parent"
+        app:srcCompat="@drawable/useplogo"
+        android:id="@+id/imageView5"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/my_toolbar"
+        android:paddingTop="20dp"
+        android:layout_height="130dp" />
+
+    <EditText
+        android:paddingLeft="15dp"
+        android:inputType="numberPassword"
+        android:ems="10"
+        android:background="#11000000"
+        android:hint="Password"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_action_password_bl"
+        android:textSize="16sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:id="@+id/editText5"
+        android:layout_marginTop="10dp"
+        android:layout_width="270dp"
+        android:layout_below="@+id/editText"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_height="45dp" />
+
+    <EditText
+        android:paddingLeft="15dp"
+        android:inputType="numberPassword"
+        android:ems="10"
+        android:hint="Re-type Password"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_action_password_bl"
+        android:textSize="16sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:id="@+id/editText6"
+        android:background="#11000000"
+        android:layout_marginTop="10dp"
+        android:layout_width="270dp"
+        android:layout_below="@+id/editText5"
+        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignStart="@+id/editText5"
+        android:layout_height="45dp" />
+
+    <TextView
+        android:text="UQA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/terminal7_transaction"
+        android:textColor="@color/colorSchool"
+        android:layout_below="@+id/imageView5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:textSize="25sp" />
+
+    <CheckBox
+        android:text="I agree to the terms and conditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:buttonTint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/editText6"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
+
+    <EditText
+        android:paddingLeft="15dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:hint="Username"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_username_bl"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:id="@+id/editText"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/terminal7_transaction"
+        android:layout_alignLeft="@+id/checkBox"
+        android:layout_alignStart="@+id/checkBox"
+        android:layout_marginTop="66dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/terminal7_transaction"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView6"
+        android:text="The Official Transaction Queuing System"
+        android:textColor="@color/colorSchool" />
+
+</RelativeLayout>

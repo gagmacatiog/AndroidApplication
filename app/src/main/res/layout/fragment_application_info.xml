@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:paddingBottom="?attr/actionBarSize"
+    tools:context="com.example.georgealbert.queuemobileapplication.ApplicationInfo">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="Information of the Application"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content"
+        android:padding="25dp"
+        android:id="@+id/textView8" />
+
+    <TextView
+        android:text="This study, “Multi-platform Queuing System for Quality Provision of an Organization: the case of USeP”, is an endeavor to improve the current service present at the university. The system permits users to queue in for a line or make a reservation. Following a queuing model, the system uses a priority algorithm in generating its queues for the different users.
+"
+        android:layout_width="match_parent"
+        android:scrollbars="horizontal"
+        android:textColor="@android:color/black"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_height="match_parent"
+        android:id="@+id/textView9" />
+</LinearLayout>
