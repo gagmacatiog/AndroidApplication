@@ -2,32 +2,215 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingTop="?attr/actionBarSize"
+    android:background="@color/colorwhitelow2"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    android:paddingBottom="?attr/actionBarSize"
+    android:clipToPadding="false"
+    android:weightSum="3"
     tools:context="com.example.georgealbert.queuemobileapplication.ApplicationInfo">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:text="Information of the Application"
-        android:layout_width="match_parent"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:layout_height="wrap_content"
-        android:padding="25dp"
-        android:id="@+id/textView8" />
+    <!--<ExpandableListView-->
+        <!--android:id="@+id/appInfo"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
-    <TextView
-        android:text="This study, “Multi-platform Queuing System for Quality Provision of an Organization: the case of USeP”, is an endeavor to improve the current service present at the university. The system permits users to queue in for a line or make a reservation. Following a queuing model, the system uses a priority algorithm in generating its queues for the different users.
-"
+    <android.support.v7.widget.CardView
+        android:layout_weight="1"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/colorwhitelow"
         android:layout_width="match_parent"
-        android:scrollbars="horizontal"
-        android:textColor="@android:color/black"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:layout_height="match_parent"
-        android:id="@+id/textView9" />
+        android:layout_height="0dp">
+
+        <RelativeLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Description"
+                android:id="@+id/dscrption"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_below="@+id/dscrption"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingLeft="25dp"
+                android:weightSum="4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <me.biubiubiu.justifytext.library.JustifyTextView
+                    android:id="@+id/text"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:text="@string/appDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+            android:layout_weight="1"
+            app:cardElevation="10dp"
+            android:layout_marginTop="-10dp"
+            app:cardBackgroundColor="@color/colorwhitelow"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" >
+
+            <TextView
+                android:text="Developers"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_weight="1"
+            app:cardElevation="10dp"
+            android:layout_marginTop="-10dp"
+            app:cardBackgroundColor="@color/colorwhitelow"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" >
+
+            <RelativeLayout
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="Developers"
+                    android:id="@+id/dvlpers"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_below="@+id/dvlpers"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="25dp"
+                    android:weightSum="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="George Albert G. Macatiog"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="Leo C. Malaya Jr."
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="Giane Karlo Mosquera"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="Spencer Harvey Tan"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_weight="1"
+            app:cardElevation="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="-10dp"
+            app:cardBackgroundColor="@color/colorwhitelow"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" >
+
+            <TextView
+                android:text="Developers"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:text="George Albert G. Macatiog"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:text="Leo C. Malaya Jr."
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:text="Giane Karlo Mosquera"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:text="Spencer Harvey Tan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
 </LinearLayout>

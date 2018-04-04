@@ -59,18 +59,24 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
+                    android:id="@+id/terminal1_image"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
+                    android:id="@+id/terminal2_image"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
+                    android:id="@+id/terminal3_image"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
@@ -83,27 +89,30 @@
 
                 <TextView
                     android:text="Cashier 1"
+                    android:id="@+id/terminal1_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal1_transaction"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="Cashier 2"
+                    android:id="@+id/terminal2_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal2_transaction"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="Cashier 3"
+                    android:id="@+id/terminal3_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal3_transaction"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
@@ -116,18 +125,21 @@
 
                 <TextView
                     android:text="149"
+                    android:id="@+id/terminal1_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:typeface="serif"
-                    android:textSize="20sp"
                     android:textAlignment="center"
-                    android:id="@+id/terminal1_queue"
+                    android:typeface="serif"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="150"
+                    android:id="@+id/terminal2_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -135,11 +147,12 @@
                     android:textStyle="bold"
                     android:typeface="serif"
                     android:textSize="20sp"
-                    android:id="@+id/terminal2_queue"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="151"
+                    android:id="@+id/terminal3_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -147,7 +160,6 @@
                     android:typeface="serif"
                     android:textSize="20sp"
                     android:textAlignment="center"
-                    android:id="@+id/terminal3_queue"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -169,20 +181,24 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
+                    android:id="@+id/terminal4_image"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:visibility="visible"
+                    android:id="@+id/terminal5_image"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:visibility="visible"
+                    android:id="@+id/terminal6_image"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
@@ -195,30 +211,31 @@
 
                 <TextView
                     android:text="Cashier 4"
+                    android:id="@+id/terminal4_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal4_transaction"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="Cashier 5"
+                    android:id="@+id/terminal5_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal5_transaction"
                     android:textAlignment="center"
-                    android:visibility="visible"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="Cashier 6"
+                    android:id="@+id/terminal6_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal6_transaction"
                     android:textAlignment="center"
-                    android:visibility="visible"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
             </LinearLayout>
@@ -230,6 +247,8 @@
 
                 <TextView
                     android:text="152"
+                    android:id="@+id/terminal4_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -237,11 +256,12 @@
                     android:typeface="serif"
                     android:textSize="20sp"
                     android:textAlignment="center"
-                    android:id="@+id/terminal4_queue"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="153"
+                    android:id="@+id/terminal5_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -249,21 +269,19 @@
                     android:textStyle="bold"
                     android:typeface="serif"
                     android:textSize="20sp"
-                    android:visibility="visible"
-                    android:id="@+id/terminal5_queue"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="154"
+                    android:id="@+id/terminal6_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:typeface="serif"
                     android:textSize="20sp"
-                    android:visibility="visible"
                     android:textAlignment="center"
-                    android:id="@+id/terminal6_queue"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -285,20 +303,24 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
+                    android:visibility="gone"
+                    android:id="@+id/terminal7_image"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
+                    android:id="@+id/terminal8_image"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
+                    android:id="@+id/terminal9_image"
                     app:srcCompat="@drawable/ic_action_terminal"
                     android:layout_weight="1" />
 
@@ -311,31 +333,32 @@
 
                 <TextView
                     android:text="Cashier 7"
+                    android:id="@+id/terminal7_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal7_transaction"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="Cashier 8"
+                    android:id="@+id/terminal8_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal8_transaction"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:visibility="visible"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="Cashier 9"
+                    android:id="@+id/terminal9_transaction"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/terminal9_transaction"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:visibility="visible"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -346,6 +369,8 @@
 
                 <TextView
                     android:text="155"
+                    android:id="@+id/terminal7_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -353,11 +378,12 @@
                     android:typeface="serif"
                     android:textSize="20sp"
                     android:textAlignment="center"
-                    android:id="@+id/terminal7_queue"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="156"
+                    android:id="@+id/terminal8_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -365,21 +391,19 @@
                     android:textStyle="bold"
                     android:typeface="serif"
                     android:textSize="20sp"
-                    android:visibility="visible"
-                    android:id="@+id/terminal8_queue"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="157"
+                    android:id="@+id/terminal9_queue"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:typeface="serif"
                     android:textSize="20sp"
-                    android:visibility="visible"
                     android:textAlignment="center"
-                    android:id="@+id/terminal9_queue"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -402,11 +426,11 @@
             android:text="Close"
             android:layout_width="wrap_content"
             android:textAllCaps="false"
+            android:id="@+id/close"
             android:textColor="@android:color/black"
             android:backgroundTint="@android:color/holo_blue_light"
             android:background="@drawable/button"
             android:layout_height="match_parent"
-            android:id="@+id/close"
             android:layout_weight="1" />
     </LinearLayout>
 

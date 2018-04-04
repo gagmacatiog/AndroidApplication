@@ -1,10 +1,11 @@
 package com.example.georgealbert.queuemobileapplication;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -13,41 +14,62 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 
-public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Main2Activity extends AppCompatActivity implements View.OnClickListener, ActivityCommunicator {
 
     private FirebaseAuth firebaseAuth;
     private TextView userEmail;
-    private ImageView usernotification, userlogs, useraddqueue;
+    String currentUser, fullName;
+    private ImageView usernotification, userlogs, useraddqueue, userImage;
     public String currentUserPassword;
 
     private ApplicationClass applicationClass;
     private FrameLayout notificationLayout, infoLayout;
 
     private ProgressDialog progressDialog;
-    private MenuItem menuItem;
+    private MenuItem menuItem, menuItem2;
     private Animation slideDown, slideUp;
+
+    queue_list qList = new queue_list();
 
     public boolean logsVisited = false, notificationVisited = false, infoVisited = false;
 
-    // Timer Class
-    queue_list QL = new queue_list();
+    DatabaseReference databaseReference, queue_status, transaction_type;
+
+    private FragmentRefreshListener fragmentRefreshListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +84,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         usernotification = (ImageView)findViewById(R.id.imageView7);
         userlogs = (ImageView)findViewById(R.id.imageView6);
         useraddqueue = (ImageView)findViewById(R.id.imageView4);
+        userImage = (ImageView)findViewById(R.id.imageView3);
 
         notificationLayout = (FrameLayout) findViewById(R.id.notification_layout);
         userEmail = (TextView)findViewById(R.id.textView4);
@@ -78,10 +101,23 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         usernotification.setOnClickListener(this);
         userlogs.setOnClickListener(this);
         useraddqueue.setOnClickListener(this);
+        userImage.setOnClickListener(this);
 
-        userEmail.setText(firebaseAuth.getCurrentUser().getEmail());
+        currentUser = firebaseAuth.getCurrentUser().getEmail().split("@")[0];
+//        userEmail.setText("ID # "+ currentUser);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Pre_Queue");
+        queue_status = FirebaseDatabase.getInstance().getReference("Queue_Status");
+        transaction_type = FirebaseDatabase.getInstance().getReference("Transaction_Type");
 
         displayFragment(1);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        checkingActiveQueue();
 
     }
 
@@ -89,83 +125,22 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case  R.id.action_zero:
+//            case  R.id.action_zero:
+//
+//                startActivity(new Intent(getApplicationContext(), AddLogs.class));
+//
+//                return true;
+//
+//            case  R.id.action_zero_point:
+//
+//                startActivity(new Intent(getApplicationContext(), AddNotification.class));
+//
+//                return true;
 
-                startActivity(new Intent(getApplicationContext(), AddLogs.class));
+            case R.id.action_five:
+                // User Account
+                startActivity(new Intent(getApplicationContext(), Profile.class));
 
-                return true;
-
-            case  R.id.action_zero_point:
-
-                startActivity(new Intent(getApplicationContext(), AddNotification.class));
-
-                return true;
-
-            case R.id.action_one:
-                // Change Password
-
-                final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-                LayoutInflater inflater = this.getLayoutInflater();
-                final View dialogView = inflater.inflate(R.layout.custom_password_dialog, null);
-                dialogBuilder.setView(dialogView);
-
-                final EditText old_password = (EditText) dialogView.findViewById(R.id.edit1);
-                final EditText new_password = (EditText) dialogView.findViewById(R.id.edit2);
-
-                final Button cancel = (Button) dialogView.findViewById(R.id.cancel);
-                final Button change = (Button) dialogView.findViewById(R.id.change);
-
-                final AlertDialog b = dialogBuilder.create();
-                b.show();
-
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        b.dismiss();
-                    }
-                });
-
-                change.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-
-                return true;
-
-            case R.id.action_two:
-                // Logout User
-
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                LayoutInflater inflater2 = this.getLayoutInflater();
-                final View dialogView2 = inflater2.inflate(R.layout.custom_logout, null);
-                builder.setView(dialogView2);
-
-
-                final Button no = (Button) dialogView2.findViewById(R.id.no);
-                final Button yes = (Button) dialogView2.findViewById(R.id.yes);
-
-                final AlertDialog logout = builder.create();
-                logout.show();
-
-                no.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        logout.dismiss();
-
-                    }
-                });
-
-                yes.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        logout.dismiss();
-                        firebaseAuth.signOut();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        finish();
-                    }
-                });
                 return true;
 
             case R.id.action_three:
@@ -176,7 +151,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 if(notificationLayout.getVisibility() == View.GONE) {
                     if(infoLayout.getVisibility() == View.VISIBLE) {
                         pageAnimation(2, 2);
-                        item.setIcon(R.drawable.ic_action_menu_info_ia);
+                        menuItem2.setIcon(R.drawable.ic_action_menu_info_ia);
 
                         // Delay 1 second
                         new Handler().postDelayed(new Runnable() {
@@ -194,10 +169,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 return true;
 
             case R.id.action_four:
+//                infoLayout.setVisibility(View.VISIBLE);
                 // Application Info..
-                if(infoVisited==false) {
-                    displayFragment(4);
-                }
                 if(infoLayout.getVisibility() == View.GONE) {
                     if(notificationLayout.getVisibility() == View.VISIBLE) {
                         pageAnimation(2, 1);
@@ -211,10 +184,10 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                         }, 1000);
                     }
                     pageAnimation(1, 2);
-                    item.setIcon(R.drawable.ic_action_menu_info);
+                    menuItem2.setIcon(R.drawable.ic_action_menu_info);
                 }else{
                     pageAnimation(2, 2);
-                    item.setIcon(R.drawable.ic_action_menu_info_ia);
+                    menuItem2.setIcon(R.drawable.ic_action_menu_info_ia);
                 }
                 return true;
 
@@ -254,6 +227,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         getMenuInflater().inflate(R.menu.main, menu);
 
         menuItem = menu.findItem(R.id.action_three);
+        menuItem2 = menu.findItem(R.id.action_four);
         menuItem.setIcon(buildCounterDrawable(count, R.drawable.ic_action_usernotification));
 
         return true;
@@ -387,7 +361,38 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             final Button submit = (Button) dialogView.findViewById(R.id.submit);
             final Spinner spinner = (Spinner) dialogView.findViewById(R.id.spinner2);
 
+            loadSpinnerValue(spinner);
+            final ArrayList<Integer> type_id = new ArrayList<>();
+
+            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                    type_id.clear();
+                    transaction_list list = (transaction_list) parent.getSelectedItem();
+                    type_id.add(list.getId());
+//                    spinner.setSelection(list.getId());
+//                    Toast.makeText(context, "Country ID: "+country.getId()+",  Country Name : "+country.getName(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
+
+
             final AlertDialog dialog = builder.create();
+            dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+
+                    if(getFragmentRefreshListener()!=null){
+                        getFragmentRefreshListener().onRefresh();
+                    }
+
+                }
+            });
+
             dialog.show();
 
             cancel.setOnClickListener(new View.OnClickListener() {
@@ -400,10 +405,92 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    spinner.getSelectedItem().toString();
+
+                int tType = type_id.get(0);
+
+                String id = databaseReference.push().getKey();
+
+                //Setting that user has an active queue;
+                queue_status.child(currentUser).setValue("Active");
+
+                databaseReference.child(id).child("Transaction_Type").setValue(tType);
+                databaseReference.child(id).child("Student_No").setValue(currentUser);
+                databaseReference.child(id).child("Full_Name").setValue(fullName);
+                databaseReference.child(id).child("Date").setValue(ServerValue.TIMESTAMP);
+
+                dialog.dismiss();
+
                 }
+
             });
+
+        }else if(v == userImage){
+
+            // 1. Instantiate an AlertDialog.Builder with its constructor
+//            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            LayoutInflater inflater = this.getLayoutInflater();
+//            final View dialogView = inflater.inflate(R.layout.user_profile, null);
+//            builder.setView(dialogView);
+//
+////            final Spinner terminalList = (Spinner) dialogView.findViewById(R.id.terminal_spinner);
+//
+//            final AlertDialog dialog = builder.create();
+//            dialog.show();
         }
+    }
+
+    public void checkingActiveQueue(){
+
+        queue_status.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child(currentUser).getValue().toString().equals("Active")){
+                    useraddqueue.setClickable(false);
+                }else{
+                    useraddqueue.setClickable(true);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void activityRestart(){
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
+    private void loadSpinnerValue(final Spinner spin){
+
+        final ArrayList<transaction_list> type = new ArrayList<>();
+        transaction_type.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+
+                    type.add(new transaction_list(Integer.parseInt(snapshot.child("id").getValue().toString()),
+                            snapshot.child("Transaction_Name").getValue().toString()));
+
+                }
+
+                //fill data in spinner
+                ArrayAdapter<transaction_list> adapter = new ArrayAdapter<transaction_list>(Main2Activity.this, R.layout.spinner_item, type);
+                adapter.setDropDownViewResource(R.layout.spinner_item);
+                spin.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
     private void displayFragment(int x){
@@ -463,4 +550,21 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
         ft.commit();
     }
+
+    public void passDataToActivity(String value){
+        this.fullName = value;
+    }
+
+    public interface FragmentRefreshListener{
+        void onRefresh();
+    }
+
+    public FragmentRefreshListener getFragmentRefreshListener() {
+        return fragmentRefreshListener;
+    }
+
+    public void setFragmentRefreshListener(FragmentRefreshListener fragmentRefreshListener) {
+        this.fragmentRefreshListener = fragmentRefreshListener;
+    }
+
 }

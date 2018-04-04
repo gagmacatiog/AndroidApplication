@@ -18,11 +18,12 @@
     <string name="currentlyServed">Now Serving</string>
     <string name="extendTime">Extend Time</string>
     <string name="dropQueue">Drop Queue</string>
+    <string name="userAccount">User Account</string>
 
     <!--Currently Served Page-->
     <string name="currentlyServedTitle">Currently Served Queue</string>
     <string name="reserveQueueTitle">Reserve a Queue</string>
-    <string name="reserveQueueMessage">Choose a Servicing Terminal:</string>
+    <string name="reserveQueueMessage">Choose Transaction Type:</string>
 
     <!--Change Password Page-->
     <string name="changePassword">Change Password</string>
@@ -48,16 +49,52 @@
     <string name="cancel">Cancel</string>
     <string name="submit">Submit</string>
 
+    <!-- Edit titles-->
+    <string name="editNumber">Edit Number</string>
+    <string name="editEmail">Edit Email</string>
+    <string name="editAddress">Edit Address</string>
+
+    <!-- Edit Message-->
+
+    <string name="editNumberMessage">Please provide your active mobile number.</string>
+    <string name="editEmailMessage">Please provide the email you are currently using.</string>
+    <string name="editAddressMessage">Please provide your current home address.</string>
+
+    <!-- Move Queue Dialog-->
+
+    <string name="moveQueueTitle">Move Queue Number</string>
+    <string name="moveQueueMessage">Set number to move your queue.</string>
+    <string name="moveJump">Moves</string>
+    <string name="proceed">Proceed</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment 1</string>
     <string name="hello_blank_fragment2">Hello blank fragment 2</string>
 
     <!--Terminal Array-->
     <string-array name="terminal">
-        <item>Cashier</item>
-        <item>Registrar</item>
-        <item>Accounts</item>
-        <item>UGTO</item>
+        <item>Enrollment</item>
+        <item>Payment</item>
+        <item>Documents</item>
+        <item>Inquire</item>
+    </string-array>
+
+    <!--Inquire Array-->
+    <string-array name="inquire">
+        <item>Balance</item>
+        <item>Payment</item>
+        <item>Documents</item>
+        <item>Inquire</item>
+    </string-array>
+
+    <!--Documents Array-->
+    <string-array name="documents">
+        <item>Enrollment</item>
+        <item>Payment</item>
+        <item>Documents</item>
+        <item>Inquire</item>
     </string-array>
 
     <!---->
@@ -72,6 +109,13 @@
         <item>5 minutes remaining</item>
         <item>3 people away</item>
     </array>
+    <string name="title_activity_profile">Profile</string>
+
+    <string name="emailExtension">/@usep.edu.ph</string>
+
+    <string name="appDescription">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+    </string>
 
     <!-- THIS IS FOR ALL DATABASE TABLE NAME-->
     <!--<string name="user_notification">user_notification</string>-->

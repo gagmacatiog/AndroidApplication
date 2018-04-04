@@ -4,32 +4,23 @@
     tools:context="be.hcpl.android.example.MainActivity" >
 
     <!-- an option that never appears as a fixed text/icon in the actionbar -->
-    <item android:id="@+id/action_zero"
-        android:title="Add Logs"
-        android:orderInCategory="50"
-        app:showAsAction="never" />
+    <!--<item android:id="@+id/action_zero"-->
+        <!--android:title="Add Logs"-->
+        <!--android:orderInCategory="50"-->
+        <!--app:showAsAction="never" />-->
 
 
-    <item android:id="@+id/action_zero_point"
-        android:title="Add Notification"
-        android:orderInCategory="60"
-        app:showAsAction="never" />
-
-    <item android:id="@+id/action_one"
-        android:title="@string/changePassword"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+    <!--<item android:id="@+id/action_zero_point"-->
+        <!--android:title="Add Notification"-->
+        <!--android:orderInCategory="60"-->
+        <!--app:showAsAction="never" />-->
 
     <!-- another option that only appears if there is enough room -->
-    <item android:id="@+id/action_two"
-        android:title="@string/logout"
-        android:orderInCategory="200"
-        app:showAsAction="never" />
 
     <item android:id="@+id/action_three"
         android:icon="@drawable/ic_action_usernotification"
         android:title=""
-        android:orderInCategory="300"
+        android:orderInCategory="100"
         android:actionLayout="@layout/custom_action_item_layout"
         app:showAsAction="always" />
 
@@ -37,7 +28,14 @@
     <item android:id="@+id/action_four"
         android:title=""
     android:icon="@drawable/ic_action_menu_info_ia"
-        android:orderInCategory="400"
+        android:orderInCategory="200"
+        app:showAsAction="always" />
+
+
+    <item android:id="@+id/action_five"
+        android:icon="@drawable/userprofile"
+        android:title="@string/userAccount"
+        android:orderInCategory="300"
         app:showAsAction="always" />
 
 </menu>

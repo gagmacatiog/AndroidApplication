@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.support.v7.widget.CardView;
 import android.view.Window;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void userLogin(){
         String user = username.getText().toString().trim();
-        final String pass = password.getText().toString().trim();
+        String pass = password.getText().toString().trim();
 
         if(TextUtils.isEmpty(user)){
             Toast.makeText(this, "Please enter username", Toast.LENGTH_SHORT).show();
@@ -67,26 +68,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        progressDialog.setMessage("Fetching Account Information...");
-        progressDialog.show();
+        checkInternetConnection CIC = new checkInternetConnection(this);
 
-        user = user + "@usep.edu.ph";
+        if(CIC.startChecking() == true) {
 
-        firebaseAuth.signInWithEmailAndPassword(user, pass)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressDialog.dismiss();
-                        if(task.isSuccessful()){
-                            // Start Main menu activity
-                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-                            new Main2Activity().currentUserPassword = pass;
-                            finish();
-                        }else{
-                            Toast.makeText(MainActivity.this, "Check Internet connection", Toast.LENGTH_LONG).show();
+            user = user.concat("@usep.edu.ph");
+
+            Log.e("Username:", user);
+
+            progressDialog.setMessage("Fetching Account Information...");
+            progressDialog.show();
+
+            firebaseAuth.signInWithEmailAndPassword(user, pass)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            progressDialog.dismiss();
+                            if (task.isSuccessful()) {
+                                // Start Main menu activity
+//                                new UserAccount(user, pass);
+                                startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+                                finish();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Invalid Username/Password. Try Again.", Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                });
+                    });
+
+        }else{
+
+            Toast.makeText(MainActivity.this, "Check Internet connection", Toast.LENGTH_LONG).show();
+
+        }
 
     }
 

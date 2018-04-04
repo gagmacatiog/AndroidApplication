@@ -3,6 +3,7 @@ package com.example.georgealbert.queuemobileapplication;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,7 @@ public class Logs_Activity extends ArrayAdapter<Logs> {
         TextView textViewStatus = (TextView) logsViewItem.findViewById(R.id.textView4);
 
         // Modifying Logs Container
-        LinearLayout logContainer = (LinearLayout) logsViewItem.findViewById(R.id.logs_container);
+        CardView logContainer = (CardView) logsViewItem.findViewById(R.id.logs_container);
 
         Logs logs = loglist.get(position);
 
@@ -62,9 +63,11 @@ public class Logs_Activity extends ArrayAdapter<Logs> {
         textViewStatus.setText(logs.getLogStatus());
 
         if(logs.getLogStatus().equals("Done")){
-            logContainer.setBackgroundColor(logsViewItem.getResources().getColor(R.color.doneColor));
+//            logContainer.setBackgroundColor(logsViewItem.getResources().getColor(R.color.doneColor));
+            logContainer.setCardBackgroundColor(logsViewItem.getResources().getColor(R.color.doneColor));
         }else{
-            logContainer.setBackgroundColor(logsViewItem.getResources().getColor(R.color.cancelColor));
+//            logContainer.setBackgroundColor(logsViewItem.getResources().getColor(R.color.cancelColor));
+            logContainer.setCardBackgroundColor(logsViewItem.getResources().getColor(R.color.cancelColor));
         }
 
         return logsViewItem;

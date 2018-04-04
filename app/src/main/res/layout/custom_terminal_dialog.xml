@@ -56,14 +56,14 @@
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
             android:layout_marginLeft="17dp"
             android:layout_marginRight="25dp"
             android:popupBackground="@color/colorwhitelow2"
             android:popupElevation="10dp"
             android:entries="@array/terminal"
             android:theme="@style/mySpinnerItemStyle"
-            android:id="@+id/spinner2" />
+            android:id="@+id/spinner2"
+            android:layout_height="56dp" />
 
         <TextView
             android:layout_width="match_parent"

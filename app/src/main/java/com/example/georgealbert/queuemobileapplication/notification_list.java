@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +23,8 @@ public class notification_list extends Fragment {
     private DatabaseReference databaseNotification;
     private List<Notification> notificationList;
     private ListView listViewNotification;
+
+    FirebaseAuth firebaseAuth;
 
     @Override
     public void onStart() {
@@ -58,7 +61,11 @@ public class notification_list extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notification_list, container, false);
         listViewNotification = (ListView)view.findViewById(R.id.listViewNotification);
         notificationList = new ArrayList<>();
-        databaseNotification = FirebaseDatabase.getInstance().getReference("sample/notification/gmacatiog");
+        firebaseAuth = FirebaseAuth.getInstance();
+        String user = firebaseAuth.getCurrentUser().getEmail().split("@")[0];
+        databaseNotification = FirebaseDatabase.getInstance().getReference("Accounts/"+user+"/Notification");
+        databaseNotification.keepSynced(true);
+
         return view;
     }
 

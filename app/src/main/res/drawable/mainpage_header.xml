@@ -6,11 +6,6 @@
                 android:startColor="@color/homeButtonRed"
                 android:endColor="@color/homeButtonRed2"
                 android:angle="270" />
-            <stroke
-                android:width="2dp"
-                android:color="@color/homeButtonRed" />
-            <corners
-                android:radius="10dp" />
         </shape>
     </item>
 </selector>

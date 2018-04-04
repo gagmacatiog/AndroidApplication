@@ -11,8 +11,8 @@
     <color name="colorwhitelow2">#efefef</color>
     <color name="doneColor">#81d4fa</color>
     <color name="cancelColor">#ffab40</color>
-    <color name="homeButtonRed">#ab424a</color>
-    <color name="homeButtonRed2">#762d33</color>
+    <color name="homeButtonRed">#FFF25A65</color>
+    <color name="homeButtonRed2">#ed404d</color>
     <color name="homeButtonBg">#0c1144</color>
     <color name="black">#000000</color>
     <color name="green">#33691E</color>

@@ -5,6 +5,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class ApplicationInfo extends Fragment {
@@ -19,6 +26,5 @@ public class ApplicationInfo extends Fragment {
         View view = inflater.inflate(R.layout.fragment_application_info, container, false);
         return view;
     }
-
 
 }
